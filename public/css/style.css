@@ -1,0 +1,512 @@
+/* Reset mặc định */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Định nghĩa biến màu sắc */
+:root {
+  --primary-blue: #4FC3F7;
+  --dark-blue: #0288D1;
+  --teal: #26A69A;
+  --white: #FFFFFF;
+  --light-gray: #F5F7FA;
+  --dark-gray: #37474F;
+  --accent-yellow: #FFD740;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--light-gray);
+  color: var(--dark-gray);
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--dark-blue);
+  padding: 15px 30px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-links {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-links a {
+  color: var(--white);
+  margin-right: 20px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.navbar-links a:hover {
+  color: var(--accent-yellow);
+}
+
+.navbar-actions {
+  display: flex;
+  align-items: center;
+}
+
+.social-icons {
+  display: flex;
+  align-items: center;
+}
+
+.social-icons a {
+  color: var(--white);
+  margin-left: 15px;
+  font-size: 1.2rem;
+  transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+  color: var(--accent-yellow);
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.search-bar input {
+  padding: 10px;
+  border: 1px solid var(--light-gray);
+  border-radius: 5px;
+  font-size: 1rem;
+  width: 200px;
+}
+
+.search-bar button {
+  padding: 10px 20px;
+  background-color: var(--teal);
+  color: var(--white);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.search-bar button:hover {
+  background-color: var(--dark-blue);
+}
+
+/* Định nghĩa style cho nút Login và Logout */
+#loginButton, #logoutButton {
+  padding: 10px 20px;
+  background-color: var(--teal);
+  color: var(--white);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-left: 10px;
+}
+
+#loginButton:hover, #logoutButton:hover {
+  background-color: var(--dark-blue);
+}
+
+.auth-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--white);
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+}
+
+.auth-container h3 {
+  margin-bottom: 20px;
+  color: var(--dark-gray);
+}
+
+.auth-container input {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid var(--light-gray);
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.auth-container button {
+  width: 100%;
+  padding: 10px;
+  background-color: var(--primary-blue);
+  color: var(--white);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.auth-container button:hover {
+  background-color: var(--dark-blue);
+}
+
+.auth-container p {
+  margin-top: 15px;
+  text-align: center;
+}
+
+.auth-container a {
+  color: var(--primary-blue);
+  text-decoration: none;
+}
+
+.auth-container a:hover {
+  text-decoration: underline;
+}
+
+/* Style cho trang Home */
+.home-section {
+  position: relative;
+  min-height: calc(100vh - 60px); /* Giảm chiều cao để tránh chồng lấn với navbar */
+  background: url('/images/background.jpg') center/cover no-repeat;
+  transition: all 0.5s ease;
+}
+
+.welcome-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: width 0.5s ease;
+}
+
+.overlay {
+  background: rgba(0, 0, 0, 0.5);
+  padding: 50px;
+  border-radius: 10px;
+  text-align: center;
+  max-width: 80%;
+}
+
+.intro-text h1 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 3rem;
+  color: var(--white);
+  margin-bottom: 20px;
+}
+
+.intro-text p {
+  font-size: 1.2rem;
+  color: var(--white);
+  line-height: 1.6;
+}
+
+.home-section.split .welcome-container {
+  width: 50%;
+}
+
+.search-results-container {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 0;
+  height: 100%;
+  background-color: var(--white);
+  overflow-y: auto;
+  transition: width 0.5s ease;
+  padding: 0;
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.search-results-container.active {
+  width: 50%;
+  padding: 20px;
+}
+
+.search-results-container h2 {
+  margin-bottom: 20px;
+  color: var(--dark-gray);
+}
+
+.recommendation-card {
+  background-color: var(--light-gray);
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.recommendation-card h3 {
+  margin-bottom: 10px;
+  color: var(--dark-gray);
+}
+
+.recommendation-card img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.recommendation-card p {
+  margin-bottom: 10px;
+  line-height: 1.6;
+}
+
+.visit-button {
+  padding: 10px 20px;
+  background-color: var(--primary-blue);
+  color: var(--white);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.visit-button:hover {
+  background-color: var(--dark-blue);
+}
+
+.loading {
+  text-align: center;
+  font-size: 1.2rem;
+  color: var(--dark-gray);
+}
+
+/* Admin dashboard */
+.admin-dashboard {
+  padding: 30px;
+  background-color: var(--white);
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin: 20px;
+}
+
+.admin-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.admin-form input,
+.admin-form textarea,
+.admin-form select {
+  padding: 10px;
+  border: 1px solid var(--light-gray);
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.admin-form textarea {
+  height: 100px;
+  resize: none;
+}
+
+.admin-form button {
+  padding: 10px;
+  background-color: var(--primary-blue);
+  color: var(--white);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.admin-form button:hover {
+  background-color: var(--dark-blue);
+}
+
+.user-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.user-table th,
+.user-table td {
+  padding: 10px;
+  border: 1px solid var(--light-gray);
+  text-align: left;
+}
+
+.user-table th {
+  background-color: var(--dark-blue);
+  color: var(--white);
+}
+
+.user-table td {
+  background-color: var(--light-gray);
+}
+
+/* Back to top button */
+.back-to-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background-color: var(--primary-blue);
+  color: var(--white);
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.back-to-top:hover {
+  background-color: var(--dark-blue);
+}
+
+/* Style cho nội dung chung */
+.content {
+  padding: 30px;
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: var(--white);
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+}
+
+.content h1 {
+  color: var(--dark-gray);
+  margin-bottom: 20px;
+}
+
+.content p {
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.team-list {
+  list-style: none;
+  padding: 0;
+}
+
+.team-list li {
+  padding: 10px;
+  background-color: var(--light-gray);
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+
+/* Style cho form liên hệ */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 10px;
+  border: 1px solid var(--light-gray);
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.contact-form textarea {
+  height: 100px;
+  resize: none;
+}
+
+.contact-form button {
+  padding: 10px;
+  background-color: var(--teal);
+  color: var(--white);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.contact-form button:hover {
+  background-color: var(--dark-blue);
+}
+
+/* Style cho modal */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background-color: var(--white);
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 600px;
+  width: 90%;
+  max-height: 80vh;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.close-modal {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--dark-gray);
+}
+
+.close-modal:hover {
+  color: var(--dark-blue);
+}
+
+.modal-content h2 {
+  margin-bottom: 15px;
+  color: var(--dark-gray);
+}
+
+.modal-content img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 5px;
+  margin-bottom: 15px;
+}
+
+.modal-content p {
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+.modal-content h3 {
+  margin-bottom: 10px;
+  color: var(--dark-gray);
+}
+
+.modal-content ul {
+  list-style: disc;
+  padding-left: 20px;
+  margin-bottom: 15px;
+}
+
+.modal-content ul li {
+  margin-bottom: 5px;
+}

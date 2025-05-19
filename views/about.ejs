@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us - Khám Phá Du Lịch</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="navbar">
+    <div class="navbar-links">
+      <a href="/">Home</a>
+      <a href="/about">About Us</a>
+      <a href="/contact">Contact Us</a>
+      <div class="social-icons">
+        <a href="#"><i class="fab fa-facebook"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+      </div>
+    </div>
+    <div class="search-bar" id="searchBar">
+      <input type="text" id="searchInput" placeholder="Search destinations...">
+      <button id="searchButton">Search</button>
+      <button id="resetButton">Clear</button>
+    </div>
+    <div>
+      <button id="loginButton">Login</button>
+      <button id="logoutButton" style="display: none;">Logout</button>
+    </div>
+  </div>
+
+  <%- include('partials/authForms') %>
+
+  <div class="content">
+    <h1>About Our Company</h1>
+    <div class="about-text">
+      <p>Travel Explorer is your trusted partner in discovering amazing destinations around the globe. 
+      We provide hand-picked recommendations to help travelers explore the best cities, temples, and beaches with ease and excitement.</p>
+    </div>
+
+    <h2>Our Team</h2>
+    <ul class="team-list">
+      <li>Vũ Trần Tuấn Minh – Founder & CEO</li>
+      <li>Vũ Trần Tuấn Minh – Frontend Developer</li>
+      <li>Vũ Trần Tuấn Minh – Backend Developer</li>
+      <li>Vũ Trần Tuấn Minh – UI/UX Designer</li>
+    </ul>
+  </div>
+
+  <div class="admin-dashboard" id="adminDashboard" style="display: none;">
+    <%- include('partials/adminDashboard') %>
+  </div>
+
+  <button class="back-to-top" id="backToTop" style="display: none;"><i class="fas fa-arrow-up"></i></button>
+  <script src="/js/client.js"></script>
+</body>
+</html>

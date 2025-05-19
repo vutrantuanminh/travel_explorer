@@ -1,0 +1,40 @@
+<h2>Add New Destination</h2>
+<div class="admin-form">
+  <input id="destName" type="text" placeholder="Destination Name">
+  <textarea id="destDescription" placeholder="Short Description"></textarea>
+  <textarea id="destDetailedDescription" placeholder="Detailed Description"></textarea>
+  <select id="destCategory">
+    <option value="cities">Cities</option>
+    <option value="beaches">Beaches</option>
+    <option value="temples">Temples</option>
+  </select>
+  <input id="destTimezone" type="text" placeholder="Timezone (e.g., Australia/Sydney)">
+  <input id="destActivities" type="text" placeholder="Activities (comma-separated)">
+  <input id="destImage" type="file" accept="image/*">
+  <input id="destLatitude" type="number" step="0.000001" placeholder="Latitude (e.g., 10.7769)">
+  <input id="destLongitude" type="number" step="0.000001" placeholder="Longitude (e.g., 106.7009)">
+  <button id="submitDestination">Add Destination</button>
+</div>
+
+<h2>Manage User Roles</h2>
+<div class="admin-form">
+  <input id="userId" type="text" placeholder="User ID">
+  <select id="userRole">
+    <option value="user">User</option>
+    <option value="admin">Admin</option>
+    <option value="superadmin">Superadmin</option>
+  </select>
+  <button id="submitRole">Update Role</button>
+</div>
+
+<h2>User List</h2>
+<table class="user-table">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Email</th>
+      <th>Role</th>
+    </tr>
+  </thead>
+  <tbody id="userTableBody"></tbody>
+</table>

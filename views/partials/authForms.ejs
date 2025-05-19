@@ -1,0 +1,23 @@
+<div class="auth-container" id="authContainer" style="display: none;">
+  <div class="auth-form" id="loginForm">
+    <h3>Đăng nhập</h3>
+    <form id="loginFormElement">
+      <input type="text" id="loginEmail" placeholder="Email">
+      <input type="password" id="loginPassword" placeholder="Mật khẩu">
+      <button type="button" id="submitLogin">Đăng nhập</button>
+    </form>
+    <p>Chưa có tài khoản? <a href="#" id="showRegister">Đăng ký</a></p>
+  </div>
+  <div class="auth-form" id="registerForm" style="display: none;">
+    <h3>Đăng ký</h3>
+    <form id="registerFormElement">
+      <input type="text" id="registerEmail" placeholder="Email">
+      <input type="password" id="registerPassword" placeholder="Mật khẩu (ít nhất 8 ký tự, 1 chữ hoa, 1 số)">
+      <input type="password" id="registerPasswordConfirm" placeholder="Nhập lại mật khẩu">
+      <input type="text" id="otpInput" placeholder="Nhập mã OTP" style="display: none;">
+      <button type="button" id="sendOtpButton">Gửi mã OTP</button>
+      <button type="button" id="submitRegister" style="display: none;">Đăng ký</button>
+    </form>
+    <p>Đã có tài khoản? <a href="#" id="showLogin">Đăng nhập</a></p>
+  </div>
+</div>

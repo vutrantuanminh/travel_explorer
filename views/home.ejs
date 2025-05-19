@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Travel Explorer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Montserrat:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <div class="navbar">
+    <!-- Các liên kết và social icons sát trái -->
+    <div class="navbar-links">
+      <a href="/">Home</a>
+      <a href="/about">About Us</a>
+      <a href="/contact">Contact Us</a>
+      <span class="social-icons">
+        <a href="https://facebook.com"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://twitter.com"><i class="fab fa-twitter"></i></a>
+        <a href="https://instagram.com"><i class="fab fa-instagram"></i></a>
+      </span>
+    </div>
+
+    <!-- Thanh tìm kiếm ở giữa, ẩn ban đầu -->
+    <div class="search-wrapper">
+      <div id="searchBar" class="search-bar" style="display: none;">
+        <input id="searchInput" type="text" placeholder="Search for a destination...">
+        <button id="searchButton">Search</button>
+        <button id="resetButton">Clear</button>
+      </div>
+    </div>
+
+    <!-- Login/Logout bên phải -->
+    <div class="navbar-actions">
+      <div class="auth-buttons">
+        <button id="loginButton">Login</button>
+        <button id="logoutButton" style="display: none;">Logout</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="homeSection" class="home-section">
+    <div class="welcome-container">
+      <div class="overlay">
+        <div class="intro-text">
+          <h1>Welcome to Travel Explorer</h1>
+          <p>Your one-stop destination for discovering the most beautiful places around the world. From bustling cities to serene beaches and ancient temples, we’ve got the best recommendations just for you!</p>
+        </div>
+      </div>
+    </div>
+
+    <div id="searchResults" class="search-results-container">
+      <h2>Recommended Places</h2>
+      <div id="results"></div>
+      <button id="backToTop" class="back-to-top" style="display: none;">
+        <i class="fas fa-arrow-up"></i>
+      </button>
+    </div>
+  </div>
+
+  <div id="authContainer" class="auth-container" style="display: none;">
+    <div id="loginForm" style="display: none;">
+      <h3>Login</h3>
+      <input id="loginEmail" type="email" placeholder="Email">
+      <input id="loginPassword" type="password" placeholder="Password">
+      <button id="submitLogin">Login</button>
+      <p>Don't have an account? <a id="showRegister" href="#">Register</a></p>
+    </div>
+    <div id="registerForm" style="display: none;">
+      <h3>Register</h3>
+      <input id="registerEmail" type="email" placeholder="Email">
+      <input id="registerPassword" type="password" placeholder="Password">
+      <input id="registerPasswordConfirm" type="password" placeholder="Confirm Password">
+      <input id="otpInput" type="text" placeholder="Enter OTP" style="display: none;">
+      <button id="sendOtpButton">Send OTP</button>
+      <button id="submitRegister" style="display: none;">Register</button>
+      <p>Already have an account? <a id="showLogin" href="#">Login</a></p>
+    </div>
+  </div>
+
+  <!-- Modal hiển thị chi tiết địa điểm -->
+  <div class="modal" id="destinationModal" style="display: none;">
+    <div class="modal-content">
+      <span class="close-modal" id="closeModal">×</span>
+      <h2 id="modalTitle"></h2>
+      <img id="modalImage" src="" alt="Destination Image" style="display: none;">
+      <p id="modalDescription"></p>
+      <p id="modalTime" style="display: none;"></p>
+      <div id="modalActivities" style="display: none;">
+        <h3>Suggested activities:</h3>
+        <ul id="activityList"></ul>
+      </div>
+      <h3>Destination:</h3>
+      <div id="modalMap" style="display: none;">
+        <a id="mapLink" href="#" target="_blank">Xem trên Google Maps</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Admin Dashboard -->
+  <div id="adminDashboard" class="admin-dashboard" style="display: none;">
+    <h2>Quản lý Người Dùng</h2>
+    <table class="user-table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Email</th>
+          <th>Vai trò</th>
+        </tr>
+      </thead>
+      <tbody id="userTableBody"></tbody>
+    </table>
+    <div class="admin-form">
+      <input id="userId" type="text" placeholder="ID người dùng">
+      <select id="userRole">
+        <option value="user">User</option>
+        <option value="admin">Admin</option>
+        <option value="superadmin">Superadmin</option>
+      </select>
+      <button id="submitRole">Cập nhật vai trò</button>
+    </div>
+    <!-- Form upload địa điểm -->
+    <h2>Thêm Địa Điểm Mới</h2>
+    <div class="admin-form">
+      <input id="destName" type="text" placeholder="Tên địa điểm">
+      <textarea id="destDescription" placeholder="Mô tả ngắn"></textarea>
+      <textarea id="destDetailedDescription" placeholder="Mô tả chi tiết"></textarea>
+      <select id="destCategory">
+        <option value="cities">Cities</option>
+        <option value="beaches">Beaches</option>
+        <option value="temples">Temples</option>
+      </select>
+      <input id="destTimezone" type="text" placeholder="Múi giờ (VD: Australia/Sydney)">
+      <input id="destActivities" type="text" placeholder="Các hoạt động (cách nhau bởi dấu phẩy)">
+      <input id="destImage" type="file" accept="image/*" placeholder="Ảnh chính">
+      <input id="destLatitude" type="number" step="0.000001" placeholder="Latitude (VD: 10.7769)">
+      <input id="destLongitude" type="number" step="0.000001" placeholder="Longitude (VD: 106.7009)">
+      <button id="submitDestination">Thêm địa điểm</button>
+    </div>
+  </div>
+
+  <script src="/js/client.js"></script>
+</body>
+</html>
