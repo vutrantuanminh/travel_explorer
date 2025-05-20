@@ -3,7 +3,7 @@ const router = express.Router();
 const User = require('../models/user');
 const OTP = require('../models/otp');
 const jwt = require('jsonwebtoken');
-const bcrypt = require('bcrypt'); // Thêm dòng này
+const bcrypt = require('bcryptjs'); // Thêm dòng này
 require('dotenv').config();
 
 const isValidPassword = (password) => {
